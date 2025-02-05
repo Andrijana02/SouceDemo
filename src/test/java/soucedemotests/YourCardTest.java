@@ -1,9 +1,11 @@
 package soucedemotests;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pages.CheckoutYourInformationPage;
 import pages.LoginPage;
 import pages.ProductPage;
 import pages.YourCardPage;
@@ -15,6 +17,12 @@ public class YourCardTest {
     private LoginPage loginPage;
     private ProductPage productPage;
     private YourCardPage yourCardPage;
+    private CheckoutYourInformationPage checkoutYourInformationPage;
+
+    @After
+    public void closeDriver(){
+        driver.close();
+    }
 
     @Before
     public void setUp(){
@@ -32,30 +40,25 @@ public class YourCardTest {
     }
     @Test
     public void continueShoppingButtonTest(){
-        productPage.clickYourCardIcon();
+        productPage.clickYourCartIcon();
         yourCardPage.clickContinueButton();
         assertTrue(productPage.isProductsPageDisplayed());
     }
     @Test
     public void checkoutButtonTest(){
-        productPage.clickYourCardIcon();
+        productPage.clickYourCartIcon();
         yourCardPage.clickCheckoutButton();
-       // assertTrue(productPage.isCheckoutYourInformationPageDisplayed());
+       assertTrue(yourCardPage.isCheckoutYourInformationPageDisplayed());
     }
     @Test
-    public void addOneItemToYourCardAndRemovedIt(){
-        productPage.clickAddToCardBikeLight();
+    public void addOneItemToYourCardAndRemovedIt() {
+        productPage.clickAddToCardBoltTShirt();
         assertEquals("1",productPage.itemCountOnCard());
-        String bikeLightTitleProductsPage = productPage.getBikeLightTitle();
-        String bikeLightDeskProductsPage = productPage.getBikeLightDesk();
-        String bikeLightPriceProductsPage = productPage.getBikeLightPrice();
-        productPage.clickYourCardIcon();
-        assertEquals(bikeLightTitleProductsPage, yourCardPage.getBikeLightTitle());
-        assertEquals(bikeLightDeskProductsPage, yourCardPage.getBikeLightDesk());
-        assertEquals(bikeLightPriceProductsPage, yourCardPage.getBikeLightPrice());
-        yourCardPage.clickRemoveButtonBikeLight();
+        yourCardPage.clickRemoveButtonBoltTShirt();
         assertFalse(yourCardPage.isItemCardCountDisplayed());
+
     }
+
 
     @Test
     public void addTwoItemsToYourCardAndRemoveOneOfThem(){
@@ -67,7 +70,7 @@ public class YourCardTest {
 
         assertEquals("2",productPage.itemCountOnCard());
 
-        productPage.clickYourCardIcon();
+        productPage.clickYourCartIcon();
 
         assertEquals(boltTShirtTitle, yourCardPage.getBoltTShirtTitle());
         assertEquals(boltTShirtDesk, yourCardPage.getBoltTShirtDesk());

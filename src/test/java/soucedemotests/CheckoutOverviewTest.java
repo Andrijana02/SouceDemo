@@ -41,7 +41,7 @@ public class CheckoutOverviewTest {
     public void checkoutOverviewItemsPrice(){
         productPage.clickAddToCardBikeLight();
         productPage.clickAddToCardBoltTShirt();
-        productPage.clickYourCardIcon();
+        productPage.clickYourCartIcon();
         yourCardPage.clickCheckoutButton();
         checkoutYourInformationPage.enterFirstName("Andrijana");
         checkoutYourInformationPage.enterLastName("Ilievska");

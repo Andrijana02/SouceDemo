@@ -40,7 +40,7 @@ public class CheckoutYourInformationPageTest {
     }
     @Before
     public void setUpForCheckout(){
-        productPage.clickYourCardIcon();
+        productPage.clickYourCartIcon();
         yourCardPage.clickCheckoutButton();
     }
 

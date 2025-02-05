@@ -41,12 +41,5 @@ public class CheckoutYourInformationPage {
     public void clickCancelButton(){
         driver.findElement(cancelButton).click();
     }
-    public Boolean isErrorMessageDisplayed(){
-        try{
-            driver.findElement(errorMessage).getText();
-            return true;}
-        catch (NoSuchElementException e) {
-            return false;
-        }
-    }
+
 }

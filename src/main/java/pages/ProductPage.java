@@ -19,14 +19,15 @@ public class ProductPage {
     private By mostExpensivePriceText = By.xpath("//*[@id=\"inventory_container\"]/div/div[1]/div[2]/div[2]/div");
     private By bikeLight = By.id("add-to-cart-sauce-labs-bike-light");
     private By bikeLightTitle = By.id("item_0_title_link");
-    private By bikeLightDesk = By.xpath("//*[@id=\"inventory_container\"]/div/div[2]/div[2]/div[1]/div");
-    private By bikeLightPrice = By.xpath("//*[@id=\"inventory_container\"]/div/div[2]/div[2]/div[2]/div");
+    private By bikeLightDesk = By.xpath("//*[@id=\"inventory_container\"]/div/div[2]/div[2]/div[1]/div/text()");
+    private By bikeLightPrice = By.xpath("//*[@id=\"inventory_container\"]/div/div[2]/div[2]/div[2]/div/text()[2]");
     private By boltTShirt = By.id("add-to-cart-sauce-labs-bolt-t-shirt");
     private By boltTShirtTitle = By.id("item_1_title_link");
     private By boltTShibrtDesk = By.xpath("//*[@id=\"inventory_container\"]/div/div[3]/div[2]/div[1]/div");
     private By boltTShirtPrice = By.xpath("//*[@id=\"inventory_container\"]/div/div[3]/div[2]/div[2]/div");
-    private By yourCardIcon = By.id("shopping_cart_container");
-    private By cardItemNumber = By.className("shopping_cart_badge");
+    private By yourCartIcon = By.id("shopping_cart_container");
+    private By cartItemNumber = By.className("shopping_cart_badge");
+
 
     public String getTextFromProductsTitle(){
         return driver.findElement(productsTitle).getText();
@@ -47,11 +48,9 @@ public class ProductPage {
         return driver.findElement(mostExpensivePriceText).getText();
 
     }
-    public void clickYourCardIcon(){
-        driver.findElement(yourCardIcon).click();
-    }
+
     public String itemCountOnCard() {
-        return driver.findElement(cardItemNumber).getText();
+        return driver.findElement(cartItemNumber).getText();
     }
 
     public boolean isProductsPageDisplayed() {
@@ -62,6 +61,9 @@ public class ProductPage {
     }
     public void clickAddToCardBoltTShirt(){
         driver.findElement(boltTShirt).click();
+    }
+    public void clickYourCartIcon(){
+        driver.findElement(yourCartIcon).click();
     }
     public String getBikeLightTitle(){
         return driver.findElement(bikeLightTitle).getText();

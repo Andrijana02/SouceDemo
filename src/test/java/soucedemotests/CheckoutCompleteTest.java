@@ -37,6 +37,8 @@ public class CheckoutCompleteTest {
     @Test
     public void CheckoutCompleteConfigurationTests(){
         assertEquals("Thank you for your order!",checkoutCompletePage.getConfirmation());
-
+        assertEquals("Checkout: Complete!",checkoutCompletePage.getTextFromCompleteTitle());
+       checkoutCompletePage.clickBackHome();
+       assertEquals("Products",productPage.getTextFromProductsTitle());
     }
 }
