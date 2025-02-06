@@ -27,13 +27,17 @@ public class LoginPageTests {
         productPage = new ProductPage(driver);
 
     }
+    @After
+    public void tearDown(){
+        driver.quit();
+    }
     @Test
     public void saucedemoLoginTests(){
         loginPage.enterUsername("standard_user");
         loginPage.enterPassword("secret_sauce");
-        loginPage.clickLogin();
         assertEquals("\"DM Sans\", Arial, Helvetica, sans-serif", loginPage.getLoginButtonFontType());
         assertEquals("16px", loginPage.getLoginButtonFontSize());
+        loginPage.clickLogin();
         assertEquals("Products",productPage.getTextFromProductsTitle());
     }
     @Test
@@ -69,8 +73,5 @@ public class LoginPageTests {
         assertEquals("14px",loginPage.getPasswordFieldFontSize());
         assertEquals("Epic sadface: Username is required",loginPage.getErrorMessage());
     }
-    @After
-    public void tearDown(){
-        driver.quit();
-    }
+
 }

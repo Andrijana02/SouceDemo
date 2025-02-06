@@ -1,5 +1,6 @@
 package soucedemotests;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -16,6 +17,7 @@ public class CheckoutCompleteTest {
     private CheckoutYourInformationPage checkoutYourInformationPage;
     private CheckoutOverview checkoutOverview;
     private CheckoutCompletePage checkoutCompletePage;
+
     @Before
     public void setUp(){
         driver = new ChromeDriver();
@@ -40,5 +42,9 @@ public class CheckoutCompleteTest {
         assertEquals("Checkout: Complete!",checkoutCompletePage.getTextFromCompleteTitle());
        checkoutCompletePage.clickBackHome();
        assertEquals("Products",productPage.getTextFromProductsTitle());
+    }
+    @After
+    public void tearDown(){
+        driver.quit();
     }
 }

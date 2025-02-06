@@ -1,5 +1,6 @@
 package soucedemotests;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -27,12 +28,16 @@ public class ProductPageTest {
         loginPage.clickLogin();
 
     }
+    @After
+    public void closeDriver(){
+        driver.close();
+    }
     @Test
     public void orderingDropDownTest(){
         assertEquals("Name (A to Z)",productPage.getAllOptionsFromOrderingDropDown().get(0).getText());
         assertEquals("Name (Z to A)",productPage.getAllOptionsFromOrderingDropDown().get(1).getText());
-        assertEquals("Price (low to higt)",productPage.getAllOptionsFromOrderingDropDown().get(2).getText());
-        assertEquals("Price (higt to low)",productPage.getAllOptionsFromOrderingDropDown().get(3).getText());
+        assertEquals("Price (low to high)",productPage.getAllOptionsFromOrderingDropDown().get(2).getText());
+        assertEquals("Price (high to low)",productPage.getAllOptionsFromOrderingDropDown().get(3).getText());
     }
     @Test
 

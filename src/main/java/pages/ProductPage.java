@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
@@ -27,6 +28,10 @@ public class ProductPage {
     private By boltTShirtPrice = By.xpath("//*[@id=\"inventory_container\"]/div/div[3]/div[2]/div[2]/div");
     private By yourCartIcon = By.id("shopping_cart_container");
     private By cartItemNumber = By.className("shopping_cart_badge");
+    private By colorTitle = By.xpath("//*[@id=\"item_4_title_link\"]/div");
+    private By sizeOfTitle = By.xpath("//*[@id=\"item_4_title_link\"]/div");
+    private By fontOfTitle = By.xpath("//*[@id=\"item_4_title_link\"]/div");
+    private By buttonRemove = By.id("remove-sauce-labs-bike-light");
 
 
     public String getTextFromProductsTitle(){
@@ -46,7 +51,6 @@ public class ProductPage {
     }
     public String getMostExpensivePriceText(){
         return driver.findElement(mostExpensivePriceText).getText();
-
     }
 
     public String itemCountOnCard() {
@@ -64,6 +68,18 @@ public class ProductPage {
     }
     public void clickYourCartIcon(){
         driver.findElement(yourCartIcon).click();
+    }
+    public String buttonRemoveColor(){
+        Color buttonBorderColorRemove = Color.fromString(driver.findElement(buttonRemove).getCssValue("border"));return buttonBorderColorRemove.asHex();
+    }
+    public String getFontOfTitle(){
+        return driver.findElement(fontOfTitle).getCssValue("font-family");
+    }
+    public String getSizeOfTitle(){
+        return driver.findElement(sizeOfTitle).getCssValue("font-size");
+    }
+    public String ColorTitle(){
+        Color colorOfTitle = Color.fromString(driver.findElement(colorTitle).getCssValue("background-color"));return colorOfTitle.asHex();
     }
     public String getBikeLightTitle(){
         return driver.findElement(bikeLightTitle).getText();
@@ -83,5 +99,4 @@ public class ProductPage {
     public String getBoltTShirtPrice(){
         return driver.findElement(boltTShirtPrice).getText();
     }
-
 }

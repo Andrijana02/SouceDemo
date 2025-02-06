@@ -34,14 +34,16 @@ public class CheckoutYourInformationPageTest {
         loginPage.enterPassword("secret_sauce");
         loginPage.clickLogin();
     }
-    @After
-    public void closeDriver(){
-        driver.close();
-    }
+
+
     @Before
     public void setUpForCheckout(){
         productPage.clickYourCartIcon();
         yourCardPage.clickCheckoutButton();
+    }
+    @After
+    public void closeDriver(){
+        driver.close();
     }
 
     @Test

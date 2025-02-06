@@ -28,7 +28,6 @@ public class LoginPage {
     public LoginPage(WebDriver driver) {
         this.driver = driver;
     }
-
     public void enterUsername(String username) {
         driver.findElement(usernameField).sendKeys(username);
     }
@@ -51,7 +50,6 @@ public class LoginPage {
 
     public void clickLogin() {
         driver.findElement(loginButton).click();
-
     }
     public String getLoginButtonFontType(){
         return driver.findElement(loginButtonFontType).getCssValue("font-family");
@@ -59,7 +57,6 @@ public class LoginPage {
     public String getLoginButtonFontSize(){
         return driver.findElement(loginButtonFontSize).getCssValue("font-size");
     }
-
 
     public String getErrorMessage() {
         return driver.findElement(errorMessage).getText();
@@ -70,9 +67,7 @@ public class LoginPage {
    public String borderUsernameColor(){
        Color borderUsernameColor = Color.fromString(driver.findElement(borderUsername).getCssValue("border-bottom-color"));return borderUsernameColor.asHex();
    }
-
     public String borderPasswordColor(){
         Color borderPasswordColor = Color.fromString(driver.findElement(borderPassword).getCssValue("border-bottom-color"));return borderPasswordColor.asHex();
     }
-
 }

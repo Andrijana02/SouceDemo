@@ -14,7 +14,6 @@ public class YourCardPage {
     private By boltTShirtTitle = By.id("item_1_title_link");
     private By boltTShibrtDesk = By.xpath("//*[@id=\"cart_contents_container\"]/div/div[1]/div[4]/div[2]/div[1]");
     private By boltTShirtPrice = By.xpath("//*[@id=\"cart_contents_container\"]/div/div[1]/div[4]/div[2]/div[2]/div");
-
     private By bikeLightTitle = By.id("item_0_title_link");
     private By bikeLightDesk = By.xpath("//*[@id=\"cart_contents_container\"]/div/div[1]/div[3]/div[2]/div[1]/text()");
     private By bikeLightPrice = By.xpath("//*[@id=\"cart_contents_container\"]/div/div[1]/div[3]/div[2]/div[2]/div/text()[1]");
@@ -45,17 +44,11 @@ public class YourCardPage {
     public String getBoltTShirtPrice(){
         return driver.findElement(boltTShirtPrice).getText();
     }
-    public void clickYourCartIcon(){
-        driver.findElement(yourCartIcon).click();
-    }
-
     public void clickRemoveButtonBikeLight() {
         driver.findElement(removeButtonBikeLight).click();
-
     }
     public void clickRemoveButtonBoltTShirt() {
         driver.findElement(removeButtonBoltTShirt).click();
-
     }
 
 

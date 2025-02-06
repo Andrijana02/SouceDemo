@@ -21,5 +21,4 @@ public class CheckoutOverview {
     public String getPriceOfTax(){
         return driver.findElement(priceOfTax).getText();
     }
-
 }

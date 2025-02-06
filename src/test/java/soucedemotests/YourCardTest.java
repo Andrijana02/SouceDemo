@@ -5,7 +5,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.CheckoutYourInformationPage;
 import pages.LoginPage;
 import pages.ProductPage;
 import pages.YourCardPage;
@@ -17,12 +16,6 @@ public class YourCardTest {
     private LoginPage loginPage;
     private ProductPage productPage;
     private YourCardPage yourCardPage;
-    private CheckoutYourInformationPage checkoutYourInformationPage;
-
-    @After
-    public void closeDriver(){
-        driver.close();
-    }
 
     @Before
     public void setUp(){
@@ -37,6 +30,10 @@ public class YourCardTest {
         loginPage.enterUsername("standard_user");
         loginPage.enterPassword("secret_sauce");
         loginPage.clickLogin();
+    }
+    @After
+    public void closeDriver(){
+        driver.close();
     }
     @Test
     public void continueShoppingButtonTest(){
@@ -78,5 +75,9 @@ public class YourCardTest {
 
         yourCardPage.clickRemoveButtonBikeLight();
         assertEquals(yourCardPage.itemCountOnCard(),"1");
+        assertFalse(yourCardPage.isBikeLightItemDisplayed());
+        yourCardPage.clickRemoveButtonBoltTShirt();
+        assertFalse(yourCardPage.isItemCardCountDisplayed());
+        assertFalse(yourCardPage.isBoltTShirtItemDisplayed());
     }
 }
