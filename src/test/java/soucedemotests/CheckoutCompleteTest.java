@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import pages.*;
 
 import static org.junit.Assert.assertEquals;
-
+//comment
 public class CheckoutCompleteTest {
     private WebDriver driver;
     private LoginPage loginPage;
