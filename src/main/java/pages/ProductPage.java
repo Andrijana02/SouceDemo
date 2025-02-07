@@ -31,6 +31,8 @@ public class ProductPage {
     private By colorTitle = By.xpath("//*[@id=\"item_4_title_link\"]/div");
     private By sizeOfTitle = By.xpath("//*[@id=\"item_4_title_link\"]/div");
     private By fontOfTitle = By.xpath("//*[@id=\"item_4_title_link\"]/div");
+    private By buttonRemove = By.id("remove-sauce-labs-bike-light");
+
 
     public String getTextFromProductsTitle(){
         return driver.findElement(productsTitle).getText();
@@ -67,6 +69,9 @@ public class ProductPage {
     public void clickYourCartIcon(){
         driver.findElement(yourCartIcon).click();
     }
+    public String buttonRemoveColor(){
+        Color buttonBorderColorRemove = Color.fromString(driver.findElement(buttonRemove).getCssValue("border"));return buttonBorderColorRemove.asHex();
+    }
     public String getFontOfTitle(){
         return driver.findElement(fontOfTitle).getCssValue("font-family");
     }
@@ -75,9 +80,6 @@ public class ProductPage {
     }
     public String ColorTitle(){
         Color colorOfTitle = Color.fromString(driver.findElement(colorTitle).getCssValue("background-color"));return colorOfTitle.asHex();
-    }
-    public String colorTitle(){
-        return driver.findElement(colorTitle).getCssValue("color");
     }
     public String getBikeLightTitle(){
         return driver.findElement(bikeLightTitle).getText();
@@ -97,5 +99,4 @@ public class ProductPage {
     public String getBoltTShirtPrice(){
         return driver.findElement(boltTShirtPrice).getText();
     }
-
 }
