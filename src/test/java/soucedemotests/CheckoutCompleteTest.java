@@ -30,7 +30,7 @@ public class CheckoutCompleteTest {
         checkoutYourInformationPage = new CheckoutYourInformationPage(driver);
         checkoutOverview = new CheckoutOverview(driver);
         checkoutCompletePage = new CheckoutCompletePage(driver);
-
+//coment
         loginPage.enterUsername("standard_user");
         loginPage.enterPassword("secret_sauce");
         loginPage.clickLogin();
