@@ -62,8 +62,5 @@ public class CheckoutOverviewTest {
         double finalValueOverall = 28.0;
 
         assertEquals(finalValueOverall, rounded, 0.0);
-
     }
-
-
 }
