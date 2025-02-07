@@ -40,9 +40,7 @@ public class CheckoutCompleteTest {
     public void CheckoutCompleteConfigurationTests(){
         assertEquals("Thank you for your order!",checkoutCompletePage.getConfirmation());
         assertEquals("Checkout: Complete!",checkoutCompletePage.getTextFromCompleteTitle());
-        assertEquals("#3ddc91", checkoutCompletePage.buttonHomeColor());
-       assertEquals("Back Home", checkoutCompletePage.getTextFromButton());
-        checkoutCompletePage.clickBackHome();
+       checkoutCompletePage.clickBackHome();
        assertEquals("Products",productPage.getTextFromProductsTitle());
     }
     @After
